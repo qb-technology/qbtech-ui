@@ -5,7 +5,7 @@ import type { FormSubmitEvent } from '#ui/types'
 const schema = z.object({
   email: z.string().email('Invalid email'),
   name: z.string().min(2, 'Must be at least 2 characters'),
-  tel: z.string(),
+  tel: z.string().optional(),
   title: z.string(),
   message: z.string().min(1, 'Must be at least a character'),
 })
@@ -94,6 +94,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
     <UButton
       type="submit"
+      trailing-icon="i-ri-send-plane-fill"
     >
       Send
     </UButton>

@@ -7,7 +7,7 @@
 
       <BaseDarkMode />
 
-      <div>
+      <!-- <div>
         <FrontendFormSignupV1 @submit="sendMessage" />
       </div>
 
@@ -20,7 +20,7 @@
             <p>andyboat75@gmail.com</p>
           </template>
         </FrontendCardV3>
-      </div>
+      </div> -->
 
       <!-- <div class="w-full h-full">
         <div class="flex items-center justify-center p-5">
@@ -36,8 +36,57 @@
         </div>
       </div> -->
       <!-- <div class="w-full h-full">
-        <FrontendSliderV1 />
+        <FrontendSliderV1
+          :number="2"
+          :delay="4000"
+        >
+          <template #slide_1>
+            <NuxtImg
+              class="w-full h-full fixed z-0"
+              format="webp"
+              src="https://associazioneasim.org/wp-content/uploads/2024/04/corporate-business-handshake-business-partners-scaled-1.jpg"
+              alt="business"
+            />
+            <div
+              data-swiper-parallax="-20%"
+              class="z-[5] w-full h-full flex flex-col items-start justify-center gap-5 bg-primary-800/20"
+            >
+              <h1
+                data-swiper-parallax="-500"
+                class="text-5xl"
+              >
+                We boost businesses
+              </h1>
+              <p data-swiper-parallax="-300">
+                The world has become a global village
+              </p>
+              <div
+                data-swiper-parallax="-100"
+                class="flex gap-5"
+              >
+                <UButton
+                  variant="solid"
+                  label="Learn More"
+                />
+                <UButton
+                  variant="outline"
+                  label="Contact Us"
+                  color="white"
+                />
+              </div>
+            </div>
+          </template>
+          <template #slide_2>
+            <NuxtImg
+              class="w-full h-full"
+              format="webp"
+              src="https://associazioneasim.org/wp-content/uploads/2024/04/imprese.jpg"
+              alt="business"
+            />
+          </template>
+        </FrontendSliderV1>
       </div> -->
+      <FrontendCardV5 />
     </UContainer>
   </div>
 </template>
@@ -75,24 +124,5 @@ const links = [
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function sendMessage(data: any) {
   console.log('send message', data)
-}
-
-const isLoaded = ref(false)
-const center = ref()
-const maps = ref()
-
-const query = ref({
-  lat: 38.1060159,
-  lng: 13.3653483,
-})
-
-const markers = ref(['38.1060159,13.3653483'])
-
-function handleReady({ map }) {
-  center.value = map.value.getCenter()
-  map.value.addListener('center_changed', () => {
-    center.value = map.value.getCenter()
-  })
-  isLoaded.value = true
 }
 </script>

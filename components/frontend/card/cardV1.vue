@@ -1,4 +1,6 @@
 <script setup lang='ts'>
+import type { ButtonColor } from '#ui/types'
+
 defineProps({
   icon: {
     type: String,
@@ -16,6 +18,10 @@ defineProps({
     type: String,
     default: 'text-lg md:text-xl lg:text-2xl',
   },
+  buttonColor: {
+    type: String as PropType<ButtonColor>,
+    default: () => 'black',
+  },
 })
 </script>
 
@@ -25,7 +31,7 @@ defineProps({
       <div class="flex items-center gap-5">
         <UButton
           :icon="icon"
-          color="black"
+          :color="buttonColor"
         />
         <p :class="[titleSize]">
           {{ title }}
