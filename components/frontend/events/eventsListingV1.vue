@@ -12,6 +12,10 @@ defineProps({
     type: String,
     default: '21/02/2025',
   },
+  location: {
+    type: String,
+    default: 'Remote',
+  },
   excerpt: {
     type: String,
     default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magn',
@@ -35,13 +39,31 @@ const img_optimizer = useImage()
       class="w-full min-h-[150px] bg-center rounded-lg"
     />
     <div class="space-y-2.5 p-4">
-      <slot name="date">
-        <UButton
-          variant="ghost"
-          color="gray"
-          icon="i-heroicons-clock"
-          :label="date"
-        />
+      <slot name="date_location">
+        <UButtonGroup
+          :ui="{
+            wrapper: {
+              horizontal: 'space-x-4',
+            },
+          }"
+          size="sm"
+          orientation="horizontal"
+        >
+          <UButton
+            variant="ghost"
+            color="gray"
+            icon="i-heroicons-clock"
+            :padded="false"
+            :label="date"
+          />
+          <UButton
+            variant="ghost"
+            color="gray"
+            icon="i-heroicons-map-pin"
+            :padded="false"
+            :label="location"
+          />
+        </UButtonGroup>
       </slot>
       <slot name="title">
         <p class="text-wrap font-semibold text-lg">

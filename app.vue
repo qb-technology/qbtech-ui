@@ -1,14 +1,18 @@
 <template>
   <div class="w-screen h-screen">
-    <UContainer class="w-full h-full">
+    <FrontendDashboardV1
+      class="w-full h-full"
+      :ui="{ sidebar: { base: 'bg-gray-300 dark:bg-gray-900' } }"
+    >
+      <template #sidebar>
+        <FrontendDashboardSidebarV1 />
+      </template>
       <div>
         <FrontendHeaderV1 :links="links" />
       </div>
 
       <BaseDarkMode />
-
-      <FrontendEventsListingV1 />
-    </UContainer>
+    </FrontendDashboardV1>
   </div>
 </template>
 
