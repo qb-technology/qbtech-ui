@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: [
-    '../base',
+    // '../base',
+    'github:qb-technology/base-ui',
   ],
   modules: [
     'nuxt-swiper',
